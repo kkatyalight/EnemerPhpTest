@@ -1,0 +1,365 @@
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+*,
+*::before,
+*::after {
+  box-sizing:border-box !important;
+}
+form *{
+    box-sizing: border-box;
+}
+
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+.lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+.work-sans {
+    font-family: "Work Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+@font-face {
+    font-family: "AvertaCY",sans-serif;
+    src: url("./fonts/Averta Cyrillic Regular.otf");
+}
+.averta-cy {
+    font-family: "AvertaCY",sans-serif;
+    font-style: normal;
+}
+@font-face {
+    font-family: "AvertaCYSemiBold",sans-serif;
+    src: url("./fonts/Averta Cyrillic SemiBold.otf");
+}
+.averta-cy-semibold {
+    font-family: "AvertaCYSemiBold",sans-serif;
+    font-style: normal;
+    font-weight: 600;
+}
+@font-face {
+    font-family: "AvertaCYBold",sans-serif;
+    src: url("./fonts/Averta Cyrillic Bold.otf");
+}
+.averta-cy-bold {
+    font-family: "AvertaCYBold",sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
+@font-face {
+    font-family: "AvertaPE",sans-serif;
+    src: url("./fonts/AvertaDemoPE-Regular.otf");
+}
+.averta-pe {
+    font-family: "AvertaPE",sans-serif;
+    font-style: normal;
+  }
+  
+  /*form*/
+.form-container{
+    // width: 100vw;
+    height: 40rem;
+    background-size: cover;
+}
+input,
+textarea{
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+}
+/*def styling*/
+
+.custom-floating{
+    position: relative;
+    border-bottom: 0.08rem solid rgba(255, 255, 255, 0.5);
+    width: 100%;
+    cursor: pointer;
+}
+.custom-floating input:focus,
+.custom-floating select:focus,
+.custom-floating textarea:focus,
+.form-select:focus{
+    outline: none;
+    box-shadow: none;
+}
+.custom-floating input::placeholder,
+.custom-floating select::placeholder,
+.custom-floating textarea::placeholder{
+    color: transparent;
+}
+.custom-floating label{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    transition: 0.2s ease all;
+}
+label.error{
+    color: $secondary;
+}
+label.error~label{
+display: none;
+}
+
+.custom-floating input:focus + label,
+.custom-floating textarea:focus + label,
+.custom-floating input:not(:placeholder-shown) + label,
+.custom-floating textarea:not(:placeholder-shown) + label{
+    // transform: translateY(-1.5rem) scale(0.75);
+    bottom: calc(100% - 1rem);
+    transform: scale(0.75);
+    opacity: 0.625rem;
+}
+/*tel*/
+.dropdown-toggle::after{
+    content: none !important;
+}
+.custom-dropdown{
+    position: relative;
+}
+.custom-dropdown::after{
+    border: 0 !important;
+    content: "\f107" !important;
+    font-family: 'FontAwesome';
+    font-size: 0.9rem;
+    position: absolute;
+    right: -20%;
+    // transform: rotateZ(0deg);
+}
+.custom-dropdown:has(>.dropdown-menu.active)::after {
+    transform: rotateZ(-90deg);
+    transition: 0.3s;
+}
+.dropdown-menu.show{
+    display: flex;
+    flex-direction: row;
+    background: transparent;
+    inset: auto !important;
+    // position: absolute;
+    // left: 50rem  !important;
+    bottom: 0 !important;
+    padding-bottom: 0.1rem;
+    margin-left: 1.3rem !important;
+    border: none;
+}
+  .custom-dropdown .dropdown-item {
+    height: 1.5rem;
+    width: auto;
+    padding-left:0 !important;
+    padding-right:0 !important;
+    margin: 0 0.5rem;
+    position: relative; 
+}
+.custom-dropdown .dropdown-item:hover{
+    background: transparent;
+    transform: scale(120%);
+    transition: 0.3s;
+}
+  .custom-dropdown .dropdown-menu {
+    opacity: 0;
+    visibility: hidden; 
+    transform: translateX(0%);
+    transition: .5s all ease-in-out;
+}
+    .custom-dropdown .dropdown-menu.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(100%);
+    }
+  
+
+
+
+/*mat status*/
+  .sel::after {
+    position: absolute;
+    content: "\f107";
+    font-family: 'FontAwesome';
+    font-size: 1rem;
+    color: #FFF;
+    right: 0;
+    bottom:0;
+  }
+  
+  .sel.active::before {
+    transform: rotateX(-180deg);
+  }
+  
+  .sel__placeholder {
+    display: block;
+    user-select: none;
+    visibility: visible;
+  }
+  
+  .sel.active .sel__placeholder {
+    visibility: hidden;
+  }
+  
+  .sel__placeholder::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: attr(data-placeholder);
+    visibility: hidden;
+  }
+  
+  .sel.active .sel__placeholder::before {
+    visibility: visible;
+  }
+  
+  .sel__box {
+    z-index: 100;
+    position: absolute;
+    top: 100%;
+    // left: -4px;
+    display: none;
+    list-style-type: none;
+    text-align: left;
+    font-size: 1em;
+    background-color: #FFF;
+    width: calc(100% + 8px);
+    box-sizing: border-box;
+  }
+  
+  .sel.active .sel__box {
+    display: block;
+    animation: fadeInUp 500ms;
+  }
+  
+  .sel__box__options {
+    display: flex;
+    flex-direction: column;
+    color: $primary;
+    user-select: none;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  
+  .sel__box__options::after {
+    content: "\f10c"; //"\f10c"-cirle //"\f192"-radio
+    font-family: 'FontAwesome';
+    font-size: .75rem;
+    color: $primary;
+    opacity: 50%;
+    position: absolute;
+    left: 0.5rem;
+  }
+  
+  .sel__box__options.selected::after {
+    content:'\f192';
+    font-family: 'FontAwesome';
+    opacity: 100%;
+    color: $secondary;
+  }
+  
+  .sel__box__options:hover::after {
+    opacity: 100%;
+    color: $secondary;
+  }
+  
+  /* ===== Keyframes ===== */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+    }
+  }
+/*checkbox*/
+  .checkbox {
+    cursor: pointer;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  .checkbox input{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    opacity: 0;
+    position: absolute;
+
+}
+.checkbox label{
+    cursor: pointer;
+    position: relative;
+}
+.checkbox label::after{
+    content: "\f096";
+    font-family: 'FontAwesome';
+    font-size: 1.3rem;
+    position: absolute;
+    left: -1.4rem;
+    bottom: -0.25rem;
+    opacity: 50%;
+}
+.checkbox label::before{
+    visibility: hidden;
+    content: "\f0c8";
+    font-family: 'FontAwesome';
+    font-size: 0.7rem;
+    position: absolute;
+    left: -1.15rem;
+    bottom: 0.25rem;
+}
+.checkbox label:hover::after{
+    opacity: 100%;
+}
+.checkbox input:checked + label::before{
+    visibility: visible;
+}
+.checkbox input:checked + label::after{
+    opacity: 100%;
+}
+.checkbox span{
+    display: inline-block;
+    vertical-align:middle;
+    position:absolute;
+    top: 0;
+    left: 0;
+    padding:0;
+    width: 1rem;
+    height: 1rem;
+    font-size: 0.6rem;
+    opacity: 50%;
+}
+.checkbox-checked{
+    visibility: hidden;
+}
+.checkbox:hover .checkbox-default{
+    opacity: 100%;
+    transition: 0.3s all;
+}
+.checkbox input:checked .checkbox-default{
+    visibility: hidden;
+}
+.checkbox input:checked .checkbox-checked{
+    visibility: visible;
+}

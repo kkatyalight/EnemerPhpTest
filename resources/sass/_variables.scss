@@ -1,0 +1,83 @@
+// Body
+$body-bg: #ffffff;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+//Colors
+$primary:       #2E2E2E;
+$secondary:     #78599C;
+$hover:         #6F39AE;
+$info:          #333333;
+$light:         #BCBCBC;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "info":       $info,
+  "light":      $light,
+);
+
+$custom-colors: (
+  "hover":      $hover,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+$custom-control-indicator-checked-color: $secondary !default;
+$custom-control-indicator-checked-bg: transparent !default;
+
+$form-select-indicator-color:       #fff;
+$form-select-color:                 $primary;
+
+$box-shadow:               0 0 2rem rgba($black, 1);
+
+$utilities: (
+    "bg-opacity": (
+        css-var: true,
+        class: bg-opacity,
+        values: (
+          10: .1,
+          25: .25,
+          50: .5,
+          75: .75,
+          80: .8,
+          100: 1
+        )
+      ),
+      'width': (
+      property: width,
+      class: w,
+      responsive: true,
+      values: (
+        25: 25%,
+        33: 33%,
+        50: 50%,
+        66: 66%,
+        75: 75%,
+        100: 100%,
+        auto: auto,
+      ),
+    ),
+);
+// $utilities: map-merge(
+//   $utilities,
+//   (
+//     'width': (
+//       property: width,
+//       class: w,
+//       responsive: true,
+//       values: (
+//         25: 25%,
+//         33: 33%,
+//         50: 50%,
+//         66: 66%,
+//         75: 75%,
+//         100: 100%,
+//         auto: auto,
+//       ),
+//     ),
+//   )
+// );
